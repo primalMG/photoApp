@@ -14,6 +14,7 @@
 		D3558311216E1190006375F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D355830F216E1190006375F4 /* LaunchScreen.storyboard */; };
 		D355831C216E1190006375F4 /* photoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355831B216E1190006375F4 /* photoAppTests.swift */; };
 		D3558327216E1190006375F4 /* photoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3558326216E1190006375F4 /* photoAppUITests.swift */; };
+		D3558335216E5820006375F4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D3558322216E1190006375F4 /* photoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = photoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3558326216E1190006375F4 /* photoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoAppUITests.swift; sourceTree = "<group>"; };
 		D3558328216E1190006375F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D355830D216E1190006375F4 /* Assets.xcassets */,
 				D355830F216E1190006375F4 /* LaunchScreen.storyboard */,
 				D3558312216E1190006375F4 /* Info.plist */,
+				D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */,
 			);
 			path = photoApp;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				D3558309216E1190006375F4 /* ViewController.swift in Sources */,
 				D3558307216E1190006375F4 /* AppDelegate.swift in Sources */,
+				D3558335216E5820006375F4 /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
