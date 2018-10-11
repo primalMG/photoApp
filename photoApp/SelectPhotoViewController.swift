@@ -21,7 +21,16 @@ class SelectPhotoViewController: UIViewController {
     }
     
     @IBAction func photoShare(_ sender: Any) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
         
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
+        
+        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        
+        present(activityVC, animated: true, completion: nil)
     }
     
     
