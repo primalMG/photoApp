@@ -16,6 +16,7 @@
 		D3558327216E1190006375F4 /* photoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3558326216E1190006375F4 /* photoAppUITests.swift */; };
 		D3558335216E5820006375F4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */; };
 		D3F51AC3216F5B9F00F2F55E /* extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F51AC2216F5B9F00F2F55E /* extention.swift */; };
+		D3F51AC5216F7EA200F2F55E /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F51AC4216F7EA200F2F55E /* SelectPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D3558328216E1190006375F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D3F51AC2216F5B9F00F2F55E /* extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extention.swift; sourceTree = "<group>"; };
+		D3F51AC4216F7EA200F2F55E /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				D3558312216E1190006375F4 /* Info.plist */,
 				D3558334216E5820006375F4 /* PhotoCollectionViewCell.swift */,
 				D3F51AC2216F5B9F00F2F55E /* extention.swift */,
+				D3F51AC4216F7EA200F2F55E /* SelectPhotoViewController.swift */,
 			);
 			path = photoApp;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				D3558309216E1190006375F4 /* ViewController.swift in Sources */,
 				D3558307216E1190006375F4 /* AppDelegate.swift in Sources */,
 				D3558335216E5820006375F4 /* PhotoCollectionViewCell.swift in Sources */,
+				D3F51AC5216F7EA200F2F55E /* SelectPhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

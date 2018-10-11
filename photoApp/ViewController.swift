@@ -34,6 +34,7 @@ extension URL {
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
     var images = [Urls]()
+    var selectImage: Urls?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -51,9 +52,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         collectionView.collectionViewLayout = layout
         
-        let urlString = "https://api.unsplash.com/photos?page"
-        //guard let url = URL(string: urlString) else { return }
-        
         if let url = URL.with(string: "photos/?page=1") {
             var urlRequest = URLRequest(url: url)
             urlRequest.setValue("Client-ID 6a01c6d8243ca73eb28e6c225c2b7de6bea3c5a7d705e14748f66ba64ed19eb9", forHTTPHeaderField: "Authorization")
@@ -63,7 +61,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
                 if let data = data {
                     do {
-                        
                         let images = try JSONDecoder().decode([Image].self, from: data)
                         print(images)
                         for img in images {
@@ -73,13 +70,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
                         }
-                        
-                    } catch let error{
+                    } catch let error {
                         print(error)
                     }
                 }
                
-                }.resume()
+            }.resume()
         }
         
         
@@ -101,7 +97,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        selectImage = images[indexPath.item]
+        performSegue(withIdentifier: "select", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "select" {
+            if let destination = segue.destination as? SelectPhotoViewController {
+                destination.selectedImage = selectImage
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
