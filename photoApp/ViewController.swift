@@ -8,29 +8,32 @@
 
 import UIKit
 
-struct Img: Decodable {
-   let data: [Data]
-}
-
-struct Data: Decodable {
+struct Image: Decodable {
     let id: String
-    let type: String
-    let filter: String
-    let link: String
-    let images: Imgs
+    let urls: Urls
 }
 
-struct Imgs: Decodable {
-    let standard_resolution: Urls
-}
 
 struct Urls: Decodable {
-    let url: String
+    let raw: String
+    let full: String
+    let regular: String
 }
+
+extension URL {
+    private static var baseUrl: String {
+        return "https://api.unsplash.com/"
+    }
+    
+    static func with(string: String) -> URL? {
+        return URL(string: "\(baseUrl)\(string)")
+    }
+}
+
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
-    var images = [Data]()
+    var images = [Urls]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -48,31 +51,38 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         collectionView.collectionViewLayout = layout
         
-        let urlString = "https://api.instagram.com/v1/users/self/media/recent/?access_token=465172273.1677ed0.0413561183774706a2a5ddf38cd564c7"
-        guard let url = URL(string: urlString) else { return }
+        let urlString = "https://api.unsplash.com/photos?page"
+        //guard let url = URL(string: urlString) else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-            do {
-                let images = try JSONDecoder().decode(Img.self, from: data)
-                print(images.data)
-                for img in images.data {
-                    if (img.type == "image"){
-                        print(img.type)
-                        self.images.append(img)
-                       
+        if let url = URL.with(string: "photos/?page=1") {
+            var urlRequest = URLRequest(url: url)
+            urlRequest.setValue("Client-ID 6a01c6d8243ca73eb28e6c225c2b7de6bea3c5a7d705e14748f66ba64ed19eb9", forHTTPHeaderField: "Authorization")
+            
+        
+            
+            URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+                if let data = data {
+                    do {
+                        
+                        let images = try JSONDecoder().decode([Image].self, from: data)
+                        print(images)
+                        for img in images {
+                        print(img.urls)
+                            self.images.append(img.urls)
+                        }
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                        
+                    } catch let error{
+                        print(error)
                     }
-                    
                 }
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-                
-            } catch {
-                let error = error
-                print(error)
-            }
-        }.resume()
+               
+                }.resume()
+        }
+        
+        
         
     }
 
@@ -83,7 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotoCollectionViewCell
-        let img = images[indexPath.item].images.standard_resolution.url
+        let img = images[indexPath.item].regular
         
         cell.imageView.loadingImgWithCache(img)
         
