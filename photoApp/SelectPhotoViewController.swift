@@ -34,7 +34,6 @@ class SelectPhotoViewController: UIViewController {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

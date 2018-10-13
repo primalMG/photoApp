@@ -81,7 +81,7 @@
         <scene sceneID="RPf-ml-VrK">
             <objects>
                 <viewController id="5fp-Gr-3Wa" customClass="SelectPhotoViewController" customModule="photoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M4q-aY-asm">
+                    <view key="view" contentMode="scaleToFill" id="M4q-aY-asm" customClass="SelectPhotoView" customModule="photoApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
