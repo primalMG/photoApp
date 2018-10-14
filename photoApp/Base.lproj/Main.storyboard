@@ -81,20 +81,38 @@
         <scene sceneID="RPf-ml-VrK">
             <objects>
                 <viewController id="5fp-Gr-3Wa" customClass="SelectPhotoViewController" customModule="photoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M4q-aY-asm" customClass="SelectPhotoView" customModule="photoApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="M4q-aY-asm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6no-LA-J3P">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="559" id="M2x-PA-T2s"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipx-v0-33t">
+                                <rect key="frame" x="92" y="631" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnReset:" destination="5fp-Gr-3Wa" eventType="touchDown" id="bcs-4m-a6Q"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-4u-Dok">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6no-LA-J3P" firstAttribute="top" secondItem="x1B-g8-dI4" secondAttribute="top" id="KeB-lF-I82"/>
-                            <constraint firstItem="6no-LA-J3P" firstAttribute="leading" secondItem="M4q-aY-asm" secondAttribute="leading" id="fg5-08-uck"/>
-                            <constraint firstAttribute="trailing" secondItem="6no-LA-J3P" secondAttribute="trailing" id="mVe-Xd-C58"/>
-                            <constraint firstItem="x1B-g8-dI4" firstAttribute="bottom" secondItem="6no-LA-J3P" secondAttribute="bottom" constant="44" id="rYN-G7-R05"/>
+                            <constraint firstItem="6no-LA-J3P" firstAttribute="leading" secondItem="M4q-aY-asm" secondAttribute="leading" id="3vz-Vz-tt6"/>
+                            <constraint firstItem="ipx-v0-33t" firstAttribute="top" secondItem="eyP-4u-Dok" secondAttribute="bottom" constant="8" symbolic="YES" id="BPj-9r-OJa"/>
+                            <constraint firstItem="ipx-v0-33t" firstAttribute="top" secondItem="6no-LA-J3P" secondAttribute="bottom" constant="8" symbolic="YES" id="CmM-HZ-erl"/>
+                            <constraint firstItem="eyP-4u-Dok" firstAttribute="leading" secondItem="6no-LA-J3P" secondAttribute="leading" id="I2p-gQ-BU4"/>
+                            <constraint firstItem="eyP-4u-Dok" firstAttribute="trailing" secondItem="6no-LA-J3P" secondAttribute="trailing" id="N1z-h3-WKZ"/>
+                            <constraint firstItem="ipx-v0-33t" firstAttribute="leading" secondItem="x1B-g8-dI4" secondAttribute="leading" constant="92" id="mVP-9O-dLn"/>
+                            <constraint firstAttribute="trailing" secondItem="6no-LA-J3P" secondAttribute="trailing" id="raU-Q4-akJ"/>
+                            <constraint firstItem="eyP-4u-Dok" firstAttribute="top" secondItem="6no-LA-J3P" secondAttribute="top" id="vWS-8a-sbq"/>
+                            <constraint firstItem="6no-LA-J3P" firstAttribute="top" secondItem="x1B-g8-dI4" secondAttribute="top" id="xdV-Hz-UsY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x1B-g8-dI4"/>
                     </view>
@@ -107,6 +125,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="drawImageView" destination="eyP-4u-Dok" id="v1w-FS-BHg"/>
                         <outlet property="imageView" destination="6no-LA-J3P" id="A6E-SF-psh"/>
                     </connections>
                 </viewController>
