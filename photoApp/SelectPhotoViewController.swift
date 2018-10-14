@@ -17,6 +17,7 @@ class SelectPhotoViewController: UIViewController {
     var endPoint = CGPoint.zero
     var swipe = false
     var opacity: CGFloat = 1.0
+    var colour = UIColor.black
     
     //setting the image selected to the imageView
     @IBOutlet weak var imageView: UIImageView! {
@@ -66,7 +67,7 @@ class SelectPhotoViewController: UIViewController {
         context.setLineCap(.square)
         context.setBlendMode(.normal)
         context.setLineWidth(lineWidth)
-        context.setStrokeColor(colourWheel().cgColor)
+        context.setStrokeColor(colour.cgColor)
         
         context.strokePath()
         
@@ -81,10 +82,15 @@ class SelectPhotoViewController: UIViewController {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
     
-    //Generating a random colour
-    func colourWheel () -> UIColor {
-        return UIColor(red: self.random(), green: self.random(), blue: self.random(), alpha: 1.0)
+    @IBAction func btnColourBlack(_ sender: Any) {
+        colour = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
     }
+    
+    @IBAction func btnColourMulti(_ sender: Any) {
+        colour = UIColor(red: self.random(), green: self.random(), blue: self.random(), alpha: 1.0)
+        
+    }
+    
     
     
     override func viewDidLoad() {
